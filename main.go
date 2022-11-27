@@ -23,8 +23,8 @@ func main() {
 }
 
 func handleRegister(c *gin.Context) {
-	nickname := c.Param("nickname")
-	password := c.Param("password")
+	nickname := c.Query("nickname")
+	password := c.Query("password")
 	userId, status := service.AccountService.Register(nickname, password)
 	c.JSON(
 		200, gin.H{

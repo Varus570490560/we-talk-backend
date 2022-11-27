@@ -1,6 +1,7 @@
 package initial
 
 import (
+	"fmt"
 	"github.com/lqs/sqlingo"
 	"we-talk-backend/account"
 )
@@ -14,6 +15,7 @@ func Initial() (*Service, error) {
 	service := new(Service)
 	db, err := sqlingo.Open("mysql", "root:password@/we_talk")
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 	service.Database = db
